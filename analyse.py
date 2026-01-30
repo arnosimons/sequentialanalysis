@@ -1,3 +1,5 @@
+"""Kernlogik für die Sequenzanalyse inklusive Prompt-Handling."""
+
 from __future__ import annotations
 
 import json
@@ -17,15 +19,14 @@ from pprint import pprint
 
 
 def _load_prompt_text(filename: str, encoding: str = "utf-8") -> str:
-    """
-    Läd die prompt files aus sequenzanalyse/_prompts/.
-    """
+    """Lädt eine Prompt-Datei aus dem eingebetteten _prompts-Verzeichnis."""
     base = pkg_resources.files("sequenzanalyse").joinpath("_prompts")
     return base.joinpath(filename).read_text(encoding=encoding)
 
 
 @dataclass(frozen=True)
 class _PromptSet:
+    """Trägt alle Prompt-Bausteine für die Analyse-Schritte."""
     prompt1_beispielsituationen: str
     prompt2_lesarten: str
     prompt3_konfrontation_template: str
@@ -47,6 +48,7 @@ class _PromptSet:
 
 
 def _load_default_prompts() -> _PromptSet:
+    """Erzeugt den standardisierten Satz an Prompt-Texten."""
     return _PromptSet(
         prompt1_beispielsituationen=_load_prompt_text("_Schritt-1--Beispielsituationen.txt"),
         prompt2_lesarten=_load_prompt_text("_Schritt-2--Lesarten.txt"),
@@ -69,6 +71,7 @@ def _load_default_prompts() -> _PromptSet:
     )
 
 def _extract_result_and_meta(response: Any) -> tuple[Any, Dict[str, Any]]:
+    """Extrahiert Ergebnisdaten und Metadaten aus einer Responses-API-Antwort."""
     # Meta robust extrahieren
     if hasattr(response, "to_dict") and callable(getattr(response, "to_dict")):
         meta = response.to_dict()
@@ -102,13 +105,12 @@ def _extract_result_and_meta(response: Any) -> tuple[Any, Dict[str, Any]]:
 
 @dataclass
 class SequenzAnalyseErgebnis:
+    """Container für das Ergebnis einer Sequenzanalyse."""
     data: Dict[str, Any]
 
 
 class SequenzAnalyse:
-    """
-    Die eigentlkiche Sequenzanalyse
-    """
+    """Führt die Sequenzanalyse für eine Liste von Sequenzen aus."""
 
     def __init__(
         self,
@@ -124,6 +126,7 @@ class SequenzAnalyse:
         self._prompts = _load_default_prompts()
 
     def _common_parse_args(self) -> Dict[str, Any]:
+        """Bündelt Standardparameter für API-Aufrufe."""
         return {
             "model": self.config.model,
             "max_output_tokens": self.config.max_output_tokens,
@@ -134,6 +137,7 @@ class SequenzAnalyse:
         }
 
     def analyse(self, sequenzen: List[str], äußerer_kontext: str) -> SequenzAnalyseErgebnis:
+        """Analysiert Sequenzen gegen einen äußeren Kontext und sammelt Ergebnisse."""
         laufende_analyse: Dict[str, Any] = {
             "meta": {
                 "config": asdict(self.config),
@@ -196,6 +200,7 @@ class SequenzAnalyse:
         return SequenzAnalyseErgebnis(data=laufende_analyse)
 
     def _schritt1(self, neue_sequenz: str) -> Dict[str, Any]:
+        """Erstellt kontextfreie Beispielsituationen zur neuen Sequenz."""
         if self.verbose:
             print('\nSchritt 1: Beispielsituationen erzählen ("kontextfrei")')
 
@@ -215,6 +220,7 @@ class SequenzAnalyse:
 
 
     def _schritt2(self, situationenerzählungen: Dict[str, Any]) -> Dict[str, Any]:
+        """Leitet kontextfreie Lesarten aus den Beispielsituationen ab."""
         if self.verbose:
             print('\nSchritt 2: Lesartenbildung ("kontextfrei")')
 
@@ -243,6 +249,7 @@ class SequenzAnalyse:
         laufende_analyse: Dict[str, Any],
         kontextfreie_lesarten: Dict[str, Any],
     ) -> Dict[str, Any]:
+        """Konfrontiert Lesarten mit Kontext und erzeugt Fallstrukturhypothesen."""
         if self.verbose:
             print("\nSchritt 3: Kontrastierung mit dem tatsächlichen Kontext")
 
@@ -327,7 +334,5 @@ class SequenzAnalyse:
 
 
 def analyse(sequenzen: List[str], äußerer_kontext: str, config: Optional[SequenzAnalyseConfig] = None) -> Dict[str, Any]:
-    """
-    One-liner convenience function for users who do not want classes.
-    """
+    """Kurzfunktion für die Analyse ohne direkte Klassennutzung."""
     return SequenzAnalyse(config=config, verbose=False).analyse(sequenzen, äußerer_kontext).data

@@ -1,3 +1,5 @@
+"""Pydantic-Modelle für die strukturierte Sequenzanalyse."""
+
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
@@ -8,18 +10,21 @@ from pydantic import BaseModel
 ### Schritt 1
 #################################################################
 class Beispielsituation(BaseModel):
+    """Einzelszene als Beispielsituation."""
     titel: str
     szene: str
 
 
 # Keine Sonderzeichen hier. Schema geht direkt an OpenAI (Schritt 1)
 class Beispielsituationen(BaseModel):
+    """Liste von Beispielsituationen aus Schritt 1."""
     beispielsituationen: List[Beispielsituation]
 
 
 ### Schritt 2
 
 class KontextfreieLesart(BaseModel):
+    """Kontextfreie Lesart inklusive Begründung und Zuordnungen."""
     titel: str
     beschreibung: str
     titel_der_zur_lesart_passenden_beispielsituationen: List[str]
@@ -30,12 +35,14 @@ class KontextfreieLesart(BaseModel):
 
 # Keine Sonderzeichen hier. Schema geht direkt an OpenAI (Schritt 1)
 class KontextfreieLesarten(BaseModel):
+    """Liste kontextfreier Lesarten aus Schritt 2."""
     lesarten: List[KontextfreieLesart]
 
 
 ### Schritt 3
 
 class SequenzVsKontext(BaseModel):
+    """Bewertung einer Sequenz im Vergleich zum Kontext."""
     sequenz: str
     passung: Literal["erwartbar", "überraschend"]
     begründung: str
@@ -43,6 +50,7 @@ class SequenzVsKontext(BaseModel):
 
 
 class SequenzVsErwarteteFortführung(BaseModel):
+    """Vergleich zwischen erwarteter und tatsächlicher Sequenz."""
     erwartete_sequenz: str
     tatsächliche_sequenz: str
     entsprechung: Literal["gut", "teilweise", "schlecht/gar nicht"]
@@ -50,11 +58,13 @@ class SequenzVsErwarteteFortführung(BaseModel):
 
 
 class SequenzVsAlteFallstrukturhypothese(BaseModel):
+    """Einordnung der Sequenz zur bisherigen Fallstrukturhypothese."""
     bestätigung: str
     infragestellung: str
 
 
 class KontextfreieLesartVsKontext(BaseModel):
+    """Abgleich einer kontextfreien Lesart mit dem Kontext."""
     titel: str
     passung: Literal["gut", "teilweise", "schlecht/gar nicht"]
     begründung: str
@@ -62,27 +72,32 @@ class KontextfreieLesartVsKontext(BaseModel):
 
 
 class KontextinduzierteLesart(BaseModel):
+    """Lesart, die durch Kontext induziert wurde."""
     titel: str
     beschreibung: str
 
 
 class KontextinduzierteLesarten(BaseModel):
+    """Liste kontextinduzierter Lesarten."""
     lesarten: List[KontextinduzierteLesart]
 
 
 class PrognoseDerNächstenSequenzeinheit(BaseModel):
+    """Prognose der nächsten Sequenz auf Basis einer Lesart."""
     lesart_titel: str
     nächste_sequenz: str
     begründung: str
 
 
 class PrognoseDerNächstenSequenzeinheiten(BaseModel):
+    """Sammlung von Prognosen pro Lesart."""
     prognose_pro_lesart: List[PrognoseDerNächstenSequenzeinheit]
 
 
 # Variante A (erste Runde, mit angepasster Hypothese)
 # Keine Sonderzeichen hier. Schema geht direkt an OpenAI (Schritt 3)
 class KonfrontationMitKontextErsteRunde(BaseModel):
+    """Schema für Schritt 3 in der ersten Runde."""
     sequenz_vs_kontext: SequenzVsKontext
     kontextfreie_lesarten_vs_kontext: List[KontextfreieLesartVsKontext]
     zwischenfazit: str
@@ -94,6 +109,7 @@ class KonfrontationMitKontextErsteRunde(BaseModel):
 # Variante B (mittlere Runden)
 # Keine Sonderzeichen hier. Schema geht direkt an OpenAI (Schritt 3)
 class KonfrontationMitKontext(BaseModel):
+    """Schema für Schritt 3 in mittleren Runden."""
     sequenz_vs_kontext: SequenzVsKontext
     sequenz_vs_erwartete_fortführung: List[SequenzVsErwarteteFortführung]
     sequenz_vs_alte_fallstrukturhypothese: SequenzVsAlteFallstrukturhypothese
@@ -107,6 +123,7 @@ class KonfrontationMitKontext(BaseModel):
 # Variante C (letzte Runde, ohne Fortführungen, dafür mit finaler Hypothese)
 # Keine Sonderzeichen hier. Schema geht direkt an OpenAI (Schritt 3)
 class KonfrontationMitKontextLetzteRunde(BaseModel):
+    """Schema für Schritt 3 in der letzten Runde."""
     sequenz_vs_kontext: SequenzVsKontext
     sequenz_vs_erwartete_fortführung: List[SequenzVsErwarteteFortführung]
     sequenz_vs_alte_fallstrukturhypothese: SequenzVsAlteFallstrukturhypothese
