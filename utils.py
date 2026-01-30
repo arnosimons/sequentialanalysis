@@ -43,23 +43,11 @@ def slugify_short(text: str, max_len: int = 40) -> str:
     return slug or "kontext"
 
 
-def get_meta_free_dict(
-        result: Dict[str, Any],
-        ) ->  Dict[str, Any]:
-
-    d = {
-        k:v if not k == 'runden' else [{k:v for k,v in d.items() if not k == "responses_meta"} for d in result.data['runden']]
-        for k, v in result.data.items()
-        if not k == 'meta'
-    }
-    
-    return d
-
-
 def analyse_als_json_speichern(
     analyse: Dict[str, Any],
     äußerer_kontext: str,
     output_dir: Path | str = ".",
+    remove_responses_meta: Bool = True,
     max_len: int = 40,
     timestamp: Optional[str] = None,
     encoding: str = "utf-8",
@@ -89,6 +77,10 @@ def analyse_als_json_speichern(
     ts = timestamp or make_timestamp()
     file_name = f"sequenzanalyse--{slugify_short(äußerer_kontext, max_len=max_len)}--{ts}.json"
     path = output_dir / file_name
+
+    if remove_responses_meta:
+        for r in analyse['runden']:
+            r.pop("responses_meta")
 
     with path.open("w", encoding=encoding) as f:
         json.dump(analyse, f, ensure_ascii=False, indent=4)
