@@ -43,6 +43,14 @@ def slugify_short(text: str, max_len: int = 40) -> str:
     return slug or "kontext"
 
 
+def remove_responses_meta(analyse):
+    d = dict(analyse)
+    for r in d['runden']:
+        if hasattr(r, "responses_meta"):    
+            r.pop("responses_meta")
+    return d
+
+
 def analyse_als_json_speichern(
     analyse: Dict[str, Any],
     äußerer_kontext: str,
@@ -79,8 +87,7 @@ def analyse_als_json_speichern(
     path = output_dir / file_name
 
     if remove_responses_meta:
-        for r in analyse['runden']:
-            r.pop("responses_meta")
+        analyse = remove_responses_meta(analyse)
 
     with path.open("w", encoding=encoding) as f:
         json.dump(analyse, f, ensure_ascii=False, indent=4)
