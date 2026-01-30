@@ -1,0 +1,34 @@
+1. `sequenz_vs_kontext`
+Hinweis: Beurteile die aktuelle Sequenz (`sequenz` aus dem Input) im tatsächlichen Kontext (`tatsächlicher_kontext` aus dem Input).
+Felder:
+- `sequenz_vs_kontext.sequenz`: die aktuell analysierte Sequenz (wortgleich)
+- `sequenz_vs_kontext.passung`: wähle genau „erwartbar“ oder „überraschend“
+- `sequenz_vs_kontext.begründung`: kurze Begründung mit konkreten Textsignalen, warum erwartbar oder überraschend
+- `sequenz_vs_kontext.erkenntnisgewinn`: was sich neu andeutet (z.B. Beziehungsdefinition, Macht, Normen, Zielkonflikt, Rollen, Emotion, Thema)
+
+2. `kontextfreie_lesarten_vs_kontext`
+Hinweis: Liste von Passungsprüfungen der kontextfreien Lesarten (`kontextfreie_lesarten[]` aus dem Input) mit dem tatsächlichen Kontext (`tatsächlicher_kontext` aus dem Input). Erzeuge pro kontextfreier Lesart genau ein Listenelement.
+Felder je Listenelement:
+- `kontextfreie_lesarten_vs_kontext[].titel`: Originaltitel der Lesart (wortgleich)
+- `kontextfreie_lesarten_vs_kontext[].passung`: wähle genau „gut“, „teilweise“ oder „schlecht/gar nicht“
+- `kontextfreie_lesarten_vs_kontext[].begründung`: kurze Begründung mit konkreten Textsignalen zur Passung im Licht des tatsächlichen Kontexts
+- `kontextfreie_lesarten_vs_kontext[].erkenntnisgewinn`: was wir aus der (Nicht-)Passung über den Fall lernen
+
+3. `zwischenfazit`
+Hinweis: Was wir bisher über die tatsächliche Fallstruktur dazugelernt haben, welche Irritation und Brüche sich aufzeigen, welche neuen Deutungen sich anbieten
+
+4. `kontextinduzierte_lesarten`
+Hinweis: Liste von kontextinduzierten Lesarten. Soll sowohl alle kontextfreie lesarten mit Passung „gut“ oder „teilweise“ enthalten als auch neue Lesarten, die erst im speziellen Kontext plausibel erscheinen und fallspezifische Besonderheiten oder Irritation erklären
+Felder je Listenelement:
+- `kontextinduzierte_lesarten[].titel`: kurzer Titel der Lesart
+- `kontextinduzierte_lesarten[].beschreibung`: allgemeine Bedeutungs- oder Funktionsbeschreibung der Textsequenz in dieser Lesart (2 bis 4 Sätze)
+
+5. `prognose_der_nächsten_sequenzeinheit`
+Hinweis: Liste von je einer wahrscheinlichen nächsten Sequenzeinheit pro kontextinduzierte Lesart (`kontextinduzierte_lesarten[]`)
+Felder je Listenelement:
+- `prognose_der_nächsten_sequenzeinheit.lesart_titel`: Originaltitel der kontextinduzierte Lesart
+- `prognose_der_nächsten_sequenzeinheit.sequenz`: die wahrscheinlichste nächste Sequenzeinheit (im Stile des Protokolls) unter dieser Lesart
+- `prognose_der_nächsten_sequenzeinheit.begründung`: kurze Begründung, warum diese Sequenzeinheit unter dieser Lesart plausibel wäre
+
+6. `erste_fallstrukturhypothese`
+Hinweis: erste vorläufige Fallstrukturhypothese, die das Fallspezifische der Situation herausarbeitet, aber alle unterschiedlichen, vom Material gestützten Deutungen explizit berücksichtigt und offen hält.  Sie bennent also explizit auch was im Rahmen der konkreten Datenlage trotzdem auch anders sein könnte.

@@ -1,0 +1,22 @@
+`sequenz`
+Hinweis: Aktuell zu analysierende Sequenz (wortgleich).
+
+`kontextfreie_lesarten`
+Hinweis: Liste von kontextfreien Lesarten aus Schritt 1 dieser Runde
+Felder je Listenelement:
+- `kontextfreie_lesarten[].titel`: kurzer Titel der Lesart
+- `kontextfreie_lesarten[].beschreibung`: allgemeine Bedeutungs- oder Funktionsbeschreibung der Textsequenz in dieser Lesart
+- `kontextfreie_lesarten[].titel_der_zur_lesart_passenden_beispielsituationen[]`: Liste der Titel aller Beispielsituationen, die zu dieser Lesart passen
+- `kontextfreie_lesarten[].beste_zur_lesart_passende_beispielsituation`: die einzelne Beispielsituation, die diese Lesart am klarsten exemplifiziert
+- `kontextfreie_lesarten[].gemeinsamekeiten_der_zur_lesart_passenden_beispielsituationen`: wichtigste strukturelle Gemeinsamkeiten
+- `kontextfreie_lesarten[].unterschiede_der_zur_lesart_passenden_beispielsituationen`: wichtigste Variationen innerhalb der Lesart
+`kontextfreie_lesarten[].beste_zur_lesart_passende_beispielsituation`
+Hinweis: Dieses Objekt ist Bestandteil eines Listenelements von `kontextfreie_lesarten`.
+Felder:
+- `kontextfreie_lesarten[].beste_zur_lesart_passende_beispielsituation.titel`: Originaltitel (wortgleich)
+- `kontextfreie_lesarten[].beste_zur_lesart_passende_beispielsituation.szene`: Originalszene (wortgleich)
+
+`tatsächlicher_kontext`
+Hinweis: Kontextrahmen der Sequenzanalyse.
+Felder:
+- `tatsächlicher_kontext.äußerer_kontext`: kurze Beschreibung der zu analysierenden sozialen Situation

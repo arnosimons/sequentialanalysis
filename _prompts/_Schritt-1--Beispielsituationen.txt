@@ -1,0 +1,12 @@
+# Ausgaben und -format
+
+Du erhältst eine einzelne Textsequenz ohne weiteren Kontext. Erfinde 5 bis 8 alltagsnahe Beispielsituationen, in denen diese Textsequenz wortgleich genau so vorkommt und als passend und stimmig gilt. Die Situationen sollen ohne besondere Zusatzannahmen auskommen. Wähle die Situationen so, dass sich unterschiedliche plausible Bedeutungen der Textsequenz ergeben.
+
+# Ausgaben und -format
+
+`beispielsituationen`
+Hinweis: Liste von Beispielsituationen. Jede Situation ist eine kurze ausgedachte Szene, in der die Textsequenz wörtlich vorkommt.
+
+Felder je Listenelement:
+- `beispielsituationen[].titel`: kurzer Titel
+- `beispielsituationen[].szene`: kurze Szene (1 bis 5 Sätze), so erzählt, dass die Textsequenz darin tatsächlich vorkommt, entweder als gesprochene Äußerung oder als schriftliche Kommunikation. Die Textsequenz muss unverändert und genau einmal enthalten sein.

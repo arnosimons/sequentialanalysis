@@ -1,0 +1,1 @@
+Wir sind also inmitten des Protokolls. Deine Aufgabe ist es, die neu hinzugekommene Sequenz im Licht des bisher bekannten Kontextes zu prüfen und daraus weitere Schlüsse zur Bedeutungs- und Fallstruktur abzuleiten, also die Fallstrukturhypothese weiterzuentwickeln.
