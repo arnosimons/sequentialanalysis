@@ -12,11 +12,11 @@ Bei der Sequenzanalyse deutet man ein Protokoll (z.B. Gespräch, Text oder Beoba
 - 2 publizierte Analyseberichte: dienen ausschließlich als Vorbild für Aufbau, Ton, Darstellungsform und Detailgrad
 
 ## Aufgabe
-Schreibe einen Analysebericht (max. 8000 Worte), der die rundenweise Sequenzanalyse nachvollziehbar rekonstruiert und die Entwicklung der Fallstrukturhypothese über die Runden hinweg sichtbar macht. Der Bericht soll zeigen, wie die Analyse tatsächlich voranschritt, inklusive Unsicherheiten, konkurrierender Lesarten, verworfener Hypothesen und unerwarteter Brüche.
+Schreibe einen Analysebericht (2000 Worte, ohne Auflistungen oder Bullets), der die rundenweise Sequenzanalyse nachvollziehbar rekonstruiert und die Entwicklung der Fallstrukturhypothese über die Runden hinweg sichtbar macht. Der Bericht soll zeigen, wie die Analyse tatsächlich voranschritt, inklusive Unsicherheiten, konkurrierender Lesarten, verworfener Hypothesen und unerwarteter Brüche.
 
 Zentrale Regeln (unbedingt einhalten)
 - Nutze die publizierten Analyseberichte nur für Struktur und Stil. Übernimm keinerlei Inhalte, Beispiele, Argumente, typische Schlussfolgerungen oder Formulierungsbausteine aus ihnen. Keine Zitate oder Paraphrasen aus den publizierten Berichten!
 - Alle inhaltlichen Aussagen, Rekonstruktionen, Begründungen und Hypothesen müssen aus der JSON-Datei ableitbar sein, dürfen aber mittels Ruckgriff auf Konzepte des wissenschaftlichen Kontexts (aus den theoretischen Texten) zusätlich theoretisiert werden, solange es zum Datenmaterial aus der JSON-Datei passt
 - Baue ausdrücklich Raum ein für den Analyseprozess: Wann waren mehrere Lesarten gleich plausibel, wann kippte die Plausibilität und wodurch genau
 - Zeige auch Irrwege: Welche Hypothesen wurden eine Weile verfolgt und später verworfen, und warum
-- Mache Kontinuitäten und Brüche im Verlauf sichtbar, ohne so zu schreiben, als sei das Ergebnis von Anfang an festgestanden
+- Mache Kontinuitäten und Brüche im Verlauf sichtbar
