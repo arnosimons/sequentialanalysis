@@ -1,6 +1,6 @@
 # sequenzanalyse
 
-`sequenzanalyse` is a self-contained Python 3.10 module for automating sequential analysis in the German tradition of Objektive Hermeneutik. It translates the sequential, step-wise procedure described by Wernet ([2009]([url](https://doi.org/10.1007/978-3-531-91729-0))) into a controlled and inspectable pipeline that processes a text sequence by sequence. Across iterative rounds, it generates alternative readings, confronts them with emerging inner context, and incrementally builds and revises a case structure hypothesis (Fallstrukturhypothese) from traceable intermediate outputs.
+sequenzanalyse is a self-contained Python 3.10 module for automating sequential analysis in the German tradition of Objektive Hermeneutik. It translates the sequential, step-wise procedure described by Wernet ([2009]([url](https://doi.org/10.1007/978-3-531-91729-0))) into a controlled and inspectable pipeline that processes a text sequence by sequence. Across iterative rounds, it generates alternative readings, confronts them with emerging inner context, and incrementally builds and revises a case structure hypothesis (Fallstrukturhypothese) from traceable intermediate outputs.
 
 The module exposes an `analyse` function that iterates through a segmented protocol (a list of sequences) and produces an auditable trace for each round. Each round is split into three stages using chained model calls via the OpenAI Responses API with typed output schemas:
 
