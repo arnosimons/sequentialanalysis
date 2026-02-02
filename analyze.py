@@ -252,7 +252,7 @@ class SequentialAnalysis:
         analysis: Dict[str, Any],
         context_free_readings: Dict[str, Any],
         expert_context: Optional[str] = None,
-        expert_context_enforcement: Literal["low", "medium", "high"] = "soll"
+        expert_context_enforcement: Literal["low", "medium", "high"] = "sollst"
     ) -> Dict[str, Any]:
         if self.verbose_rounds:
             print("\nStage 3: Confrontation")
