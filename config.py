@@ -1,5 +1,3 @@
-"""Konfigurationsmodell für die Sequenzanalyse."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -7,8 +5,7 @@ from typing import Literal, Optional
 
 
 @dataclass(frozen=True)
-class SequenzAnalyseConfig:
-    """Bündelt Parameter für Modell- und Analyseausführung."""
+class SequentialAnalysisConfig:
     model: str = "gpt-5-nano"
     max_output_tokens: Optional[int] = None
     reasoning_effort: Literal["minimal", "low", "medium", "high", "xhigh"] = "medium"
