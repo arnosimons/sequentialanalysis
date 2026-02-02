@@ -38,10 +38,9 @@ sequences = [
 # The outer context (case knowledge) used in stage 3.
 outer_context = "Interview about a workplace conflict."
 
-# Optional: tweak model settings:
+# Pick OpenAI model
 config = SequentialAnalysisConfig(
     model="gpt-5-nano",
-    temperature=0.7,
 )
 
 analyzer = SequentialAnalysis(
