@@ -18,6 +18,7 @@ All prompts are stored as external text files and loaded at runtime, and every i
 - **Configurable runs**: tune model, temperature, and reasoning settings via `SequenzAnalyseConfig`.
 
 ## Installation
+Open your Terminal (macOS or Linux) or PowerShell/Command Prompt (Windows) and run:
 
 ```bash
 python -m pip install "git+https://github.com/arnosimons/sequentialanalysis.git"
