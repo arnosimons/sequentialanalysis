@@ -1,0 +1,35 @@
+1. `sequenz_vs_kontext`
+Felder:
+- `sequenz_vs_kontext.sequenz`: die aktuell analysierte Sequenz (`aktuelle_sequenz` aus dem Input)
+- `sequenz_vs_kontext.passung`: wähle genau „erwartbar“ oder „überraschend“
+- `sequenz_vs_kontext.begründung`: kurze Begründung mit konkreten Textsignalen, warum erwartbar oder überraschend
+- `sequenz_vs_kontext.erkenntnisgewinn`: was sich neu andeutet (z.B. Beziehungsdefinition, Macht, Normen, Zielkonflikt, Rollen, Emotion, Thema)
+
+2. `sequenz_vs_erwartete_fortführungen`
+Felder je Listenelement:
+- `sequenz_vs_erwartete_fortführungen[].erwartete_sequenz`: erwartete Anschlusssequenz aus der letzten Runde (`erwartete_fortführungen[].erwartete_anschlusssequenz` aus dem Input)
+- `sequenz_vs_erwartete_fortführungen[].tatsächliche_sequenz`: aktuell tatsächlich vorliegende Sequenz (`aktuelle_sequenz` aus dem Input)
+- `sequenz_vs_erwartete_fortführungen[].entsprechung`: wähle genau „gut“, „teilweise“ oder „schlecht/gar nicht“
+- `sequenz_vs_erwartete_fortführungen[].erkenntnisgewinn`: was der Abgleich für die Interpretation bedeutet (z.B. welche Erwartungen waren zu eng, welche tragfähig, welche neuen Optionen eröffnen sich)
+
+3. `sequenz_vs_alte_fallstrukturhypothese`
+Felder:
+- `sequenz_vs_alte_fallstrukturhypothese.bestätigung`: welche Teile der alten Fallstrukturhypothese bestätigt werden (textnah)
+- `sequenz_vs_alte_fallstrukturhypothese.infragestellung`: welche Teile der alten Fallstrukturhypothese in Frage gestellt werden (textnah)
+
+4. `kontextfreie_lesarten_vs_kontext`
+Hinweis: Erzeuge pro kontextfreier Lesart (`kontextfreie_lesarten[]` aus dem Input) genau ein Listenelement.
+Felder je Listenelement:
+- `kontextfreie_lesarten_vs_kontext[].titel`: Originaltitel der Lesart (`kontextfreie_lesarten[].titel`)
+- `kontextfreie_lesarten_vs_kontext[].passung`: wähle genau „gut“, „teilweise“ oder „schlecht/gar nicht“
+- `kontextfreie_lesarten_vs_kontext[].begründung`: kurze Begründung mit konkreten Textsignalen zur Passung im Licht des tatsächlichen Kontexts
+- `kontextfreie_lesarten_vs_kontext[].erkenntnisgewinn`: was wir aus der (Nicht-)Passung über den Fall lernen
+
+5. `zwischenfazit`
+
+6. `kontextinduzierte_lesarten`
+Felder je Listenelement:
+- `kontextinduzierte_lesarten[].titel`: kurzer Titel der Lesart
+- `kontextinduzierte_lesarten[].beschreibung`: allgemeine Bedeutungs- oder Funktionsbeschreibung der Textsequenz in dieser Lesart (2 bis 4 Sätze)
+
+7. `finale_fallstrukturhypothese`

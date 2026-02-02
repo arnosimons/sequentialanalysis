@@ -1,0 +1,29 @@
+1. `sequenz_vs_kontext`
+Felder:
+- `sequenz_vs_kontext.sequenz`: die aktuell analysierte Sequenz (`aktuelle_sequenz` aus dem Input)
+- `sequenz_vs_kontext.passung`: wähle genau „erwartbar“ oder „überraschend“
+- `sequenz_vs_kontext.begründung`: kurze Begründung mit konkreten Textsignalen, warum erwartbar oder überraschend
+- `sequenz_vs_kontext.erkenntnisgewinn`: was sich neu andeutet (z.B. Beziehungsdefinition, Macht, Normen, Zielkonflikt, Rollen, Emotion, Thema)
+
+2. `kontextfreie_lesarten_vs_kontext`
+Hinweis: Erzeuge pro kontextfreier Lesart (`kontextfreie_lesarten[]` aus dem Input) genau ein Listenelement.
+Felder je Listenelement:
+- `kontextfreie_lesarten_vs_kontext[].titel`: Originaltitel der Lesart (`kontextfreie_lesarten[].titel`)
+- `kontextfreie_lesarten_vs_kontext[].passung`: wähle genau „gut“, „teilweise“ oder „schlecht/gar nicht“
+- `kontextfreie_lesarten_vs_kontext[].begründung`: kurze Begründung mit konkreten Textsignalen zur Passung im Licht des tatsächlichen Kontexts
+- `kontextfreie_lesarten_vs_kontext[].erkenntnisgewinn`: was wir aus der (Nicht-)Passung über den Fall lernen
+
+3. `zwischenfazit`
+
+4. `kontextinduzierte_lesarten_mit_prognose_für_die_nächste_runde`
+Hinweis: Erzeuge pro kontextinduzierter Lesart (aus Aufgabe 5) genau ein Listenelement.
+Felder je Listenelement:
+- `kontextinduzierte_lesarten_mit_prognose_für_die_nächste_runde[].titel`: kurzer Titel der Lesart
+- `kontextinduzierte_lesarten_mit_prognose_für_die_nächste_runde[].beschreibung`: allgemeine Bedeutungs- oder Funktionsbeschreibung der Textsequenz in dieser Lesart (2 bis 4 Sätze)
+- `kontextinduzierte_lesarten_mit_prognose_für_die_nächste_runde[].prognose_am_wahrscheinlichsten`
+- `kontextinduzierte_lesarten_mit_prognose_für_die_nächste_runde[].prognose_gerade_noch_im_Rahmen`
+Für beide letztgenannten Felder gibt es jeweils folgende Unterfelder:
+- `.nächste_sequenz`: die prognostizierte nächste Sequenzeinheit (im Stile des Protokolls)
+- `.begründung`: kurze Begründung, warum diese Sequenzeinheit unter dieser Lesart entweder sehr plausibel wäre (bei `prognose_am_wahrscheinlichsten`) oder gerade noch (bei `prognose_gerade_noch_im_Rahmen`) plausibel wäre
+
+6. `erste_fallstrukturhypothese`

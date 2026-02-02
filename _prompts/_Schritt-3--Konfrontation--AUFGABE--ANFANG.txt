@@ -1,0 +1,18 @@
+Du bist also ganz am Anfang des Protokolls und konfrontierst die aktuelle Sequenz mit ihrem tatsächlichen Kontext.
+
+Um Anhand des Arbeitsmaterials eine erste Fallstrukturhypothese zu entwickeln, gehe der Reihenfolge nach so vor:
+
+1. Sequenz vs Kontext: 
+Betrachte die aktuelle Sequenz (`aktuelle_sequenz`) in ihrem tatsächlichen Kontext (`tatsächlicher_kontext`). Wie erwartbar oder überraschend ist sie? Was lernen wir daraus über die tatsächliche Fallstruktur?
+
+2. Kontextfreie Lesarten vs. Kontext:
+Prüfe für jede kontextfreie Lesart aus Schritt 2 der aktuellen Runde (`kontextfreie_lesarten[]`), wie gut sie zum tatsächlichen Kontext (`tatsächlicher_kontext`) der aktuellen Sequenz (`aktuelle_sequenz`) passt. Passt sie „gut“, „teilweise“ oder „schlecht/gar nicht“? Was lernen wir daraus über die tatsächliche Fallstruktur?
+
+3. Zwischenfazit: 
+Was haben wir bisher über die tatsächliche Fallstruktur dazugelernt? Welche "Wahl" wurde mit der aktuellen Sequenz getroffen, wenn auch unbewusst? Entsprach sie den Erwartungen oder wich sie davon ab, wenn ja, wie? Welche Irritation oder Brüche zeigen sich auf? Welche Implikationen hat das für die Situation und die sich darin in Aushandlung befindenden Bedeutungen und Beziehungen? Ziehe dabei aber immer in Betracht, dass es auf jede dieser Fragen auch mehrer plausible Antworten geben kann und bringe dies zum Ausdruck, zB in dem du verschiedene Deutungen nebeneinanderstellst und in ihrem Plausibilitätsgrad einschäzt.
+
+4. Kontextinduzierten Lesarten mit Prognose für die nächste Analyserunde
+Generiere nun eine Liste von kontextinduzierten Lesarten. Nimm hierzu alle kontextfreien Lesarten, die du in Teilaufgabe 2 als mindestens “teilweise” passend identifiziert hast, als Kandidaten auf und passe deren Beschreibung ggf. etwas an. Erfinde zusätzlich 1 bis 3 neue, aber voneinander möglichst verschiedene Lesarten, die im tatsächlichen Kontext plausibel erscheinen, aber bisher nicht berücksichtigt wurden - insbesondere solche, die fallspezifische Besonderheiten oder Irritation erklären könnten. Für jede Lesart dieser neuen Liste mache zusätzlich eine Prognose für die nächste Analyserunde. Erstens: Welche nächste Sequenz wäre vor dem Hintergrund dieser Lesart am wahrscheinlichsten? Zweitens: Welche nächste Sequenz wäre vor dem Hintergrund dieser Lesart gerade noch im Rahmen, also genau an der Grenze des für diese Lesart Vorstellbaren.
+
+5. Erste Fallstrukturhypothese:
+Entwickle auf Basis deiner bisherigen Analyse eine erste Fallstrukturhypothese. Nutze deine Resultate aus den Teilaufgaben 1-4, um das Fallspezifische der Situation herauszuarbeiten. Lege dich dabei nicht vorschnell fest, sondern halte alle unterschiedlichen, vom Material gestützten Deutungen und Lesarten explizit offen. Frage dich stets, was trotz der konkreten Datenlage auch anders sein könnte und benenne dies explizit.
