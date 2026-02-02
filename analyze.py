@@ -324,8 +324,6 @@ class SequentialAnalysis:
                 .strip()
         )
 
-        pprint(dev_prompt)
-
         schema = (
             KonfrontationMitKontextErsteRunde if round == 1
             else KonfrontationMitKontext if round < last_round
