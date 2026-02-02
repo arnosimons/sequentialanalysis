@@ -9,7 +9,7 @@ Prüffrage: Würde die Person die Sequenz auch dann genau so äußern/schreiben,
 Wähle die Situationen so, dass sich unterschiedliche plausible Bedeutungen der Textsequenz ergeben.
 
 2. Unpassende Situationen (kontrastives Gedankenexperiment):
-Erfinde zusätzlich genau 2 unpassende Beispielsituationen, in der die Textsequenz ebenfalls wortgleich vorkommt, aber im Kontext unpassend wirkt und eine eigentümliche Grenzüberschreitung sichtbar macht. 
+Erfinde zusätzlich genau 2 unpassende Beispielsituationen, in der die Textsequenz ebenfalls wortgleich vorkommt, aber im Kontext unpassend wirkt und eine Irritation oder Unangemessenheit sichtbar macht. 
 Dabei gilt derselbe Realismus- und Intentionalitätsstandard wie oben: kein Fehler-/Artefakt-Kontext. Der Kontrast soll ausschließlich daraus entstehen, dass der Kontext die Äußerung unangemessen macht, nicht daraus, dass die Sequenz „aus Versehen“ entstanden ist.
 
 3. Implizite Voraussetzungen explizieren:
