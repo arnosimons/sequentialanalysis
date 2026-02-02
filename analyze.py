@@ -89,7 +89,7 @@ def _extract_result_and_meta(response: Any) -> tuple[Any, Dict[str, Any]]:
     if text:
         return json.loads(text), meta
 
-    raise ValueError("Response enthält weder output_parsed noch output_text.")
+    raise ValueError("Response includes neither output_parsed nor output_text.")
 
 def _make_timestamp(now: Optional[_dt.datetime] = None) -> str:
     now = now or _dt.datetime.now()
@@ -176,15 +176,15 @@ class SequentialAnalysis:
                 "responses_meta": [],
             }
 
-            stories, meta1 = self.story_telling(new_sequence)
+            stories, meta1 = self.tell_stories(new_sequence)
             results_current_round["results"].append(stories)
             results_current_round["responses_meta"].append(meta1)
 
-            context_free_readings, meta2 = self.forming_readings(stories)
+            context_free_readings, meta2 = self.form_readings(stories)
             results_current_round["results"].append(context_free_readings)
             results_current_round["responses_meta"].append(meta2)
 
-            confrontation_with_context, meta3 = self.confrontation(
+            confrontation, meta3 = self.confront_with_context(
                 round=round,
                 last_round=last_round,
                 new_sequence=new_sequence,
@@ -195,7 +195,7 @@ class SequentialAnalysis:
                 expert_context=expert_context,
                 expert_context_enforcement=expert_context_enforcement,
             )
-            results_current_round["results"].append(confrontation_with_context)
+            results_current_round["results"].append(confrontation)
             results_current_round["responses_meta"].append(meta3)
 
             analysis["rounds"].append(results_current_round)
@@ -204,7 +204,7 @@ class SequentialAnalysis:
 
         return SequentialAnalysisResult(data=analysis)
 
-    def story_telling(self, new_sequence: str) -> Dict[str, Any]:
+    def tell_stories(self, new_sequence: str) -> Dict[str, Any]:
         if self.verbose_rounds:
             print('\nStage 1: Storytelling ("context-free")')
 
@@ -223,7 +223,7 @@ class SequentialAnalysis:
         return result, meta
 
 
-    def forming_readings(self, stories: Dict[str, Any]) -> Dict[str, Any]:
+    def form_readings(self, stories: Dict[str, Any]) -> Dict[str, Any]:
         if self.verbose_rounds:
             print('\nStage 2: Forming readings ("context-fre")')
 
@@ -242,7 +242,7 @@ class SequentialAnalysis:
         return result, meta
     
 
-    def confrontation(
+    def confront_with_context(
         self,
         round: int,
         last_round: int,
@@ -345,14 +345,3 @@ class SequentialAnalysis:
             pprint(result)
 
         return result, meta
-
-
-def analyze(
-        sequences: List[str], 
-        outer_context: str, 
-        config: Optional[SequentialAnalysisConfig] = None
-) -> Dict[str, Any]:
-    return SequentialAnalysis(
-        config=config, 
-        verbose_rounds=False
-    ).analyse(sequences, outer_context).data
