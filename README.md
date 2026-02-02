@@ -8,7 +8,7 @@ The module exposes an `analyze` function that iterates through a segmented proto
 - Stage 2 (`form_readings`): consolidate the situation set into a small number of context-lean meaning types by extracting what the scenarios share structurally. For each reading, the pipeline specifies the fragment’s typical function within the scenario, links the reading back to the situations that exemplify it, and identifies a best-fitting example. The result is a compact set of contestable candidate meanings that remain independent of the concrete case, ready to be tested in Stage 3.
 - Stage 3 (`confront_with_context`): test the candidate readings against the inner context (the previously analyzed sequences) and the outer context (basic case knowledge, for example that the material is an interview), track what is expected versus surprising at each step, and update the running case structure hypothesis while keeping viable alternatives open rather than closing them too early. It also generates explicit predictions about plausible next sequences under each reading, so that emerging expectations can be checked against what actually follows in the protocol. Optionally, expert knowledge can be provided to nudge the model toward specific interpretion perspectives.
 
-A separate report-writing prompt (`write_report`) is included as a template that turns the JSON trace into a continuous analysis report. It is not (yet) wired into the module as an API stage. Instead, it is meant for interactive chat use, where users can paste the trace and optionally add exemplars or theory texts under strict constraints (style only for exemplars, vocabulary only for theory, no new case facts).
+A separate report-writing prompt is included as a template that turns the JSON trace into a continuous analysis report. It is not (yet) wired into the module as an API stage. Instead, it is meant for interactive chat use, where users can paste the trace and optionally add exemplars or theory texts under strict constraints (style only for exemplars, vocabulary only for theory, no new case facts).
 
 All prompts are stored as external text files and loaded at runtime, and every intermediate product plus response metadata is logged in structured JSON. This design makes the analysis process reproducible and easier to debug, since you can see whether issues originate in situation generation, reading formation, or context confrontation.
 
@@ -22,10 +22,15 @@ All prompts are stored as external text files and loaded at runtime, and every i
 ## Basic use case (copy/paste)
 
 ```python
-from sequenzanalyse import analyse, SequenzAnalyseConfig
+from sequentialanalysis import SequentialAnalysis, SequentialAnalysisConfig
+from sequentialanalysis import save_as_json
+
+from openai import OpenAI
+
+client = OpenAI(api_key=YOUR_OPENAI_API_KEY)
 
 # A minimal protocol split into sequences (each entry is one segment).
-sequenzen = [
+sequences = [
     "A: Was macht das Modell?",
     "B: Es erzählt uns Geschichten.",
     "A: Und der Kontext?",
@@ -33,18 +38,44 @@ sequenzen = [
 ]
 
 # The outer context (case knowledge) used in stage 3.
-äußerer_kontext = "Interview about a workplace conflict."
+outer_context = "Interview about a workplace conflict."
 
-# Optional: tweak model settings.
-config = SequenzAnalyseConfig(
+# Optional: tweak model settings:
+config = SequentialAnalysisConfig(
     model="gpt-5-nano",
     temperature=0.7,
 )
 
-result = analyse(sequenzen, äußerer_kontext, config=config)
+analyzer = SequentialAnalysis(
+    client=client, 
+    config=config, 
+)
+
+# Run the full analysis
+result = analyzer.analyze(
+    sequences, 
+    outer_context, 
+)
+
+# Optional: provide expert knowledge:
+expert_context = (
+    "Sprachmodelle können Texte generieren, die wie Geschichten klingen. "
+    "Man muss nur aufpassen, welchen Kontext man ihnen dabei gibt."
+)
+result = analyzer.analyze(
+    sequences, outer_context, 
+    expert_context=expert_context,
+    expert_context_enforcement="high",
+)
 
 # The full result is a nested dict with all rounds and stages.
-print(result["runden"][0].keys())
+print(result["rounds"][0].keys())
+
+# Save the results
+out_path = save_as_json(
+    result.data, 
+    output_dir="out", 
+)
 ```
 
 ## Requirements
