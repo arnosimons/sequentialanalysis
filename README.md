@@ -17,6 +17,12 @@ All prompts are stored as external text files and loaded at runtime, and every i
 - **Externalized prompts**: prompt files live in `_prompts/` and are loaded at runtime.
 - **Configurable runs**: tune model, temperature, and reasoning settings via `SequenzAnalyseConfig`.
 
+## Installation
+
+```bash
+python -m pip install "git+https://github.com/arnosimons/sequentialanalysis.git"
+```
+
 ## Basic use case (copy/paste)
 
 ```python
@@ -66,7 +72,7 @@ result = analyzer.analyze(
 )
 
 # The full result is a nested dict with all rounds and stages.
-print(result["rounds"][0].keys())
+print(result.data["rounds"][0].keys())
 
 # Save the results
 out_path = save_as_json(
