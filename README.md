@@ -46,7 +46,7 @@ sequences = [
 ]
 
 # The outer context (case knowledge) used in stage 3.
-outer_context = "Interview about a workplace conflict."
+outer_context = "Ein Dialog zwischen A und B."
 
 # Pick OpenAI model
 config = SequentialAnalysisConfig(
