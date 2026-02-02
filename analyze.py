@@ -158,7 +158,7 @@ class SequentialAnalysis:
         pprint(sequences)
         print(f"\nRounds: {len(sequences)}")
         if expert_context:
-            print(f'\n-> NOTE: You provided expert context (enforcement="{expert_context_enforcement})')
+            print(f'\n-> NOTE: You provided expert context (enforcement="{expert_context_enforcement}")')
 
         for round, new_sequence in enumerate(sequences, 1):
             if self.verbose_rounds:
