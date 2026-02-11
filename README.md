@@ -30,58 +30,57 @@ python -m pip install "git+https://github.com/arnosimons/sequentialanalysis.git"
 Paste this into a Python file, a notebook, or the Python REPL:
 
 ```python
-from sequentialanalysis import SequentialAnalysis, SequentialAnalysisConfig
+from sequentialanalysis import SequentialAnalysis
 from sequentialanalysis import save_as_json
 
-from openai import OpenAI
+from pprint import pprint
 
-client = OpenAI(api_key=YOUR_OPENAI_API_KEY)
 
-# A minimal protocol split into sequences (each entry is one segment).
-sequences = [
+# Initialize SequentialAnalysis
+sa = SequentialAnalysis.from_provider(
+    language="de",
+    provider="openai",
+    model="gpt-5-nano",
+    llm_kwargs={"api_key": "YOUR_KEY"},
+    print_runtime=False,
+    print_prompts=True,
+)
+
+
+# Define segments and context
+segments = [
     "A: Was macht das Modell?",
     "B: Es erzählt uns Geschichten.",
     "A: Und der Kontext?",
     "B: Kommt erst später!"
 ]
-
-# The outer context (case knowledge) used in stage 3.
 outer_context = "Ein Dialog zwischen A und B."
 
-# Pick OpenAI model
-config = SequentialAnalysisConfig(
-    model="gpt-5-nano",
+
+# Run sequential analysis
+result = sa.analyze(
+    segments=segments,
+    outer_context=outer_context,
 )
 
-analyzer = SequentialAnalysis(
-    client=client, 
-    config=config, 
+
+# Pretty-print selected results, e.g...
+print(result.data["rounds"][0]["stories"]) # stories from the first round
+print(result.data["rounds"][1]["readings"]) # readings from the second round
+print(result.data["rounds"][2]["confrontation"]) #
+
+
+# Save the result as JSON with automatically generated filename
+save_as_json(
+    data=result, 
+    output_dir="out"
 )
 
-# Run the full analysis
-result = analyzer.analyze(
-    sequences, 
-    outer_context, 
-)
 
-# Optional: provide expert knowledge:
-expert_context = (
-    "Sprachmodelle können Texte generieren, die wie Geschichten klingen. "
-    "Man muss nur aufpassen, welchen Kontext man ihnen dabei gibt."
-)
-result = analyzer.analyze(
-    sequences, outer_context, 
-    expert_context=expert_context,
-    expert_context_enforcement="high",
-)
-
-# The full result is a nested dict with all rounds and stages.
-print(result.data["rounds"][0].keys())
-
-# Save the results
-out_path = save_as_json(
-    result.data, 
-    output_dir="out", 
+# Save selected results as JSON with a custom filename
+save_as_json(
+    data=result.data["rounds"][0]["stories"], 
+    filepath="out/stories-from-the-first-round.json"
 )
 ```
 
