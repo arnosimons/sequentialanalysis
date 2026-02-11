@@ -15,7 +15,7 @@ All prompts are stored as external text files and loaded at runtime, and every i
 - **Three-stage pipeline**: telling stories, forming readings, and context confrontation.
 - **Auditable trace**: structured outputs per round with response metadata.
 - **Externalized prompts**: prompt files live in `_prompts/` and are loaded at runtime.
-- **Configurable runs**: tune model, temperature, and reasoning settings via `SequenzAnalyseConfig`.
+- **Configurable runs**: tune model, temperature, and reasoning settings via `SequentialAnalysis.from_provider()` or `SequenzAnalyseConfig`.
 
 ## Installation
 
