@@ -1,0 +1,55 @@
+## Aufgaben
+
+In der nachfolgenden User message erhältst du ein Textsegment ohne weiteren Kontext. Achte zunächst auf Details wie Groß- und Kleinschreibung, GRammatik, Anzahl der Worte. Dann erledige die folgenden Aufgaben der Reihe nach.
+
+1. Passende Situationen (Ausgabefeld: `matching_situations`):
+Erfinde 5 bis 8 alltagsnahe Beispielsituationen, in denen dieses Textsegment wortgleich und exakt in der vorgegebenen Schreibweise vorkommt und als passend und stimmig gilt, wobei das Textsegment nicht die gesamte Äußerung sein muss, sondern auch als zusammenhängender Teil einer längeren Äußerung erscheinen darf. Wähle die Situationen so, dass sich unterschiedliche plausible Bedeutungen des Textsegments ergeben.
+
+2. Unpassende Situationen (Ausgabefeld: `non_matching_situations`):
+Erfinde zusätzlich genau 2 unpassende Beispielsituationen, in der das Textsegment ebenfalls wortgleich und exakt in der vorgegebenen Schreibweise vorkommt, aber im Kontext eher unpassend wirkt und eine leichte Irritation oder Unangemessenheit auslöst. Das Textsegment muss nicht die gesamte Äußerung sein, sondern darf auch als zusammenhängender Teil einer längeren Äußerung erscheinen. Wichtig: Unpassend ist nur die Art der Verwendung, nicht das Thema selbst. Wähle die beiden Situationen so, dass sich unterschiedliche plausible Bedeutungen des Textsegments ergeben. Vermeide außergewöhnliche Situationen wie Notfälle oder Beerdigungen.
+
+3. Implizite Voraussetzungen explizieren (Ausgabefeld: `implicit_assumptions`):
+Formuliere anschließend 1 bis 5 implizite Voraussetzungen, die durch den Kontrast zwischen passenden und unpassenden Situationen besonders klar werden. Es sind Annahmen, die normalerweise still mitlaufen müssen, damit das Textsegment in passenden Situationen sinnvoll oder angemessen ist.
+
+
+## Qualitätskriterien (gelten für alle passenden und unpassenden Situationen in Aufgabe 1 und 2)
+
+Jede Situation muss alle Kriterien erfüllen:
+
+A) Primärgebrauch
+Das Textsegment wird von einer Person absichtlich und wortgleich genau so verwendet, um in der Situation etwas zu kommunizieren oder zu bewirken.
+
+B) Natürlichkeit
+Die Person würde das Textsegment auch unbeobachtet und ohne Störung exakt so äußern oder schreiben.
+
+C) Konkreter Situationsbezug
+Die Situation ist so beschrieben, dass genau dieses Textsegment inhaltlich dazu passt. Wenn man das Textsegment durch beliebigen anderen Text ersetzt, wäre die Situation nicht mehr dieselbe.
+
+D) Kein Reden über das Textsegment
+Die Beteiligten sprechen nicht über das Textsegment als Text, sondern benutzen es als Äußerung innerhalb der Situation.
+
+Arbeitsweise:
+Erzeuge zunächst mehr Kandidaten als benötigt und verwirf strikt alle, die auch nur eines der Kriterien verletzen. Gib nur die finalen Situationen aus.
+
+
+## Ausgabe
+
+Hinweis: Gib ein Objekt exakt gemäß Schema aus. Keine zusätzlichen Felder.
+
+1. `matching_situations`
+Hinweis: Erzeuge pro passender Beispielsituation (aus Aufgabe 1) genau ein Listenelement.
+Felder je Listenelement:
+- `matching_situations[].title`: kurzer Titel
+- `matching_situations[].scene`: die Beispielsituation als kurze Szene (1 bis 5 Sätze)
+
+2. `non_matching_situations`
+Felder:
+- `non_matching_situations[].title`: kurzer Titel
+- `non_matching_situations[].scene`: die Beispielsituation als kurze Szene (1 bis 5 Sätze)
+
+3. `implicit_assumptions`
+Hinweis: Erzeuge pro impliziter Voraussetzung (aus Aufgabe 3) genau ein Listenelement.
+Felder je Listenelement:
+- `implicit_assumptions[].assumption`: eine knappe Annahme (ein Satz), die erfüllt sein muss, damit das Textsegment in den passenden Situationen sinnvoll/angemessen ist.
+
+4. `segment`: das Textsegment
