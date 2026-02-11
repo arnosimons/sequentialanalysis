@@ -1,0 +1,42 @@
+1. `segment_vs_context`
+Felder:
+- `segment_vs_context.segment`: das aktuell analysierte Segment (`current_segment` aus dem Input)
+- `segment_vs_context.fit`: wähle genau "expected" oder "surprising"
+- `segment_vs_context.rationale`: kurze Begründung mit konkreten Textsignalen, warum erwartbar oder überraschend
+- `segment_vs_context.insight_gain`: was sich neu andeutet und was wir daraus über die Fallstruktur lernen
+
+2. `segment_vs_predictions_for_next_segment_from_the_previous_round`
+Felder je Listenelement:
+- `segment_vs_predictions_for_next_segment_from_the_previous_round[].expected_segment`: erwartete Anschlusssequenz aus der letzten Runde (`predictions_for_next_segment_from_the_previous_round[].next_segment` aus dem Input)
+- `segment_vs_predictions_for_next_segment_from_the_previous_round[].actual_segment`: aktuell tatsächlich vorliegendes Segment (`current_segment` aus dem Input)
+- `segment_vs_predictions_for_next_segment_from_the_previous_round[].correspondence`: wähle genau "good", "partial" oder "poor_or_none"
+- `segment_vs_predictions_for_next_segment_from_the_previous_round[].insight_gain`: was der Abgleich für die Interpretation bedeutet (z.B. welche Erwartungen waren zu eng, welche tragfähig, welche neuen Optionen eröffnen sich)
+
+3. `segment_vs_previous_case_structure_hypothesis`
+Felder:
+- `segment_vs_previous_case_structure_hypothesis.confirmation`: welche Teile der alten Fallstrukturhypothese bestätigt werden (textnah)
+- `segment_vs_previous_case_structure_hypothesis.challenge`: welche Teile der alten Fallstrukturhypothese in Frage gestellt werden (textnah)
+
+4. `context_free_readings_vs_context`
+Hinweis: Erzeuge pro kontextfreier Lesart (`context_free_readings[]` aus dem Input) genau ein Listenelement.
+Felder je Listenelement:
+- `context_free_readings_vs_context[].title`: Originaltitel der Lesart (`context_free_readings[].title`)
+- `context_free_readings_vs_context[].fit`: wähle genau "good", "partial" oder "poor_or_none"
+- `context_free_readings_vs_context[].rationale`: kurze Begründung mit konkreten Textsignalen zur Passung im Licht des tatsächlichen Kontexts
+- `context_free_readings_vs_context[].insight_gain`: was wir aus der (Nicht-)Passung über den Fall lernen
+
+5. `interim_summary` (3 bis 6 Sätze)
+
+6. `context_informed_readings_with_predictions_for_next_round`
+Hinweis: Erzeuge pro kontextinformierter Lesart genau ein Listenelement.
+Felder je Listenelement:
+- `context_informed_readings_with_predictions_for_next_round[].title`: kurzer Titel der Lesart
+- `context_informed_readings_with_predictions_for_next_round[].description`: kurze allgemeine Bedeutungs- oder Funktionsbeschreibung der Textsequenz in dieser Lesart
+- `context_informed_readings_with_predictions_for_next_round[].plausibility`: wähle genau "very_plausible", "plausible" oder "only_just_plausible"
+- `context_informed_readings_with_predictions_for_next_round[].most_plausible_prediction`
+- `context_informed_readings_with_predictions_for_next_round[].only_just_plausible_prediction`
+Für beide letztgenannten Felder gibt es jeweils folgende Unterfelder:
+- `.next_segment`: das prognostizierte nächste Segment (im Stile des Protokolls)
+- `.rationale`: kurze Begründung, warum dieses Segment unter dieser Lesart entweder sehr plausibel wäre (bei `most_plausible_prediction`) oder gerade noch plausibel wäre (bei `only_just_plausible_prediction`)
+
+7. `updated_case_structure_hypothesis` (5 bis 10 Sätze)

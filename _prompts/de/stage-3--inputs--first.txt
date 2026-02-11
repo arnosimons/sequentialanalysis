@@ -1,0 +1,20 @@
+`current_segment`
+Inhalt: Aktuell zu analysierendes Segment.
+
+`outer_context`
+Inhalt: kurze Beschreibung der zu analysierenden sozialen Situation (der äußere Kontext)
+
+`context_free_readings`
+Inhalt: Liste von kontextfreien Lesarten aus Schritt 2 der aktuellen Runde
+Felder je Listenelement:
+- `context_free_readings[].title`: kurzer Titel der Lesart
+- `context_free_readings[].description`: allgemeine Bedeutungs- oder Funktionsbeschreibung des aktuellen Segments in dieser Lesart
+- `context_free_readings[].titles_of_example_situations_matching_this_reading[]`: Liste der Titel aller Beispielsituationen, die zu dieser Lesart passen
+- `context_free_readings[].best_matching_example_situation`: die einzelne Beispielsituation, die diese Lesart am klarsten exemplifiziert
+- `context_free_readings[].commonalities_across_matching_example_situations`: wichtigste strukturelle Gemeinsamkeiten innerhalb der Lesart
+- `context_free_readings[].differences_across_matching_example_situations`: wichtigste Variationen innerhalb der Lesart
+`context_free_readings[].best_matching_example_situation`
+Hinweis: Dieses Objekt ist Bestandteil eines Listenelements von `context_free_readings`.
+Felder:
+- `context_free_readings[].best_matching_example_situation.title`: Originaltitel (wortgleich)
+- `context_free_readings[].best_matching_example_situation.scene`: Originalszene (wortgleich)
