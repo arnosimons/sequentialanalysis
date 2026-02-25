@@ -20,5 +20,9 @@ setup(
     ],
     package_dir={"sequentialanalysis": "."},
     include_package_data=True,
-    package_data={"sequentialanalysis": ["_prompts/*.txt"]},
+    package_data={
+        "sequentialanalysis": [
+            "_prompts/*.txt",
+            "_prompts/*/*.txt",
+        ]},
 )
